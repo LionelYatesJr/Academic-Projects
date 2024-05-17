@@ -1,0 +1,36 @@
+#include <iostream>
+#include <pthread.h>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <semaphore.h>
+#include <queue>
+#define NUM_THREADS    5
+
+using namespace std;
+sem_t mySem;
+void *func(void *threadid){
+    long tid;
+    int i;
+    tid = (long)threadid;
+    sem_wait(&mySem);
+
+}
+int main() {
+
+    queue <string> words;
+    ifstream fin("allocate.txt");
+    int i;
+    fin >> i;
+    cout << i;
+    string mystr;
+    while (getline(fin, mystr)) {
+        words.push(mystr);
+        while (!words.empty()) {}
+        cout << words.front() << endl;
+        words.pop();
+    }
+return 0;
+
+}
+
